@@ -1,0 +1,11 @@
+.model-form {
+    padding-top: 16px;
+}
+
+.model-form .ant-form-item {
+    margin-bottom: 20px;
+}
+
+.model-form .ant-form-item-label > label {
+    font-weight: 500;
+}

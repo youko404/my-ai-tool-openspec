@@ -1,0 +1,228 @@
+.model-page {
+    padding: 24px;
+    background: var(--color-bg-secondary);
+    min-height: 100%;
+    color: var(--color-text);
+}
+
+.model-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.model-page-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.model-page-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+/* Table styles */
+.model-page .ant-table {
+    background: var(--color-bg-card);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border-strong);
+}
+
+.model-page .ant-table-thead > tr > th {
+    background: var(--color-table-header);
+    font-weight: 600;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.model-page .ant-table-tbody > tr.ant-table-row:hover > td {
+    background: var(--color-table-row-hover);
+}
+
+.model-page .ant-table-tbody > tr > td {
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+}
+
+/* Button styles */
+.model-page .ant-btn-link {
+    padding: 0 4px;
+}
+
+/* Inputs */
+.model-page .ant-input,
+.model-page .ant-input-affix-wrapper {
+    background: var(--color-bg-card);
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.model-page .ant-input-affix-wrapper .ant-input {
+    background: transparent;
+}
+
+.model-page .ant-input::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.model-page .ant-input-affix-wrapper .ant-input-prefix,
+.model-page .ant-input-affix-wrapper .ant-input-suffix {
+    color: var(--color-text-secondary);
+}
+
+/* Pagination */
+.model-page .ant-pagination-item {
+    background: var(--color-bg-card);
+    border-color: var(--color-border-strong);
+}
+
+.model-page .ant-pagination-item a,
+.model-page .ant-pagination-item-ellipsis,
+.model-page .ant-pagination-total-text,
+.model-page .ant-pagination-options {
+    color: var(--color-text-secondary);
+}
+
+.model-page .ant-pagination-item-active {
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
+}
+
+.model-page .ant-pagination-item-active a {
+    color: var(--color-text);
+}
+
+.model-page .ant-pagination-item:hover {
+    background: var(--color-table-row-hover);
+    border-color: var(--color-primary);
+}
+
+.model-page .ant-pagination-prev .ant-pagination-item-link,
+.model-page .ant-pagination-next .ant-pagination-item-link {
+    background: var(--color-bg-card);
+    border-color: var(--color-border-strong);
+    color: var(--color-text-secondary);
+}
+
+.model-page .ant-pagination-prev:hover .ant-pagination-item-link,
+.model-page .ant-pagination-next:hover .ant-pagination-item-link {
+    background: var(--color-table-row-hover);
+    border-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+.model-page .ant-pagination-options .ant-select-selector {
+    background: var(--color-bg-card) !important;
+    border-color: var(--color-border-strong) !important;
+    color: var(--color-text);
+}
+
+.model-page .ant-pagination-options .ant-select-arrow {
+    color: var(--color-text-secondary);
+}
+
+.model-page .ant-select-dropdown {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-strong);
+    box-shadow: var(--shadow-md);
+}
+
+.model-page .ant-select-item {
+    color: var(--color-text);
+}
+
+.model-page .ant-select-item-option-active,
+.model-page .ant-select-item-option-selected {
+    background: var(--color-table-row-hover);
+    color: var(--color-text);
+}
+
+/* Modal theme alignment */
+.model-page-modal .ant-modal-content,
+.model-page-confirm .ant-modal-content {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.model-page-modal .ant-modal-header,
+.model-page-confirm .ant-modal-header {
+    background: transparent;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.model-page-modal .ant-modal-title,
+.model-page-confirm .ant-modal-title,
+.model-page-confirm .ant-modal-confirm-title {
+    color: var(--color-text);
+}
+
+.model-page-modal .ant-modal-body,
+.model-page-confirm .ant-modal-body,
+.model-page-confirm .ant-modal-confirm-content {
+    color: var(--color-text);
+}
+
+.model-page-modal .ant-modal-close,
+.model-page-confirm .ant-modal-close {
+    color: var(--color-text-secondary);
+}
+
+.model-page-modal .ant-modal-footer,
+.model-page-confirm .ant-modal-footer {
+    border-top: 1px solid var(--color-border);
+    background: transparent;
+}
+
+.model-page-modal .ant-form-item-label > label {
+    color: var(--color-text);
+}
+
+.model-page-modal .ant-form-item-explain,
+.model-page-modal .ant-form-item-extra {
+    color: var(--color-text-secondary);
+}
+
+.model-page-modal .ant-input,
+.model-page-modal .ant-input-affix-wrapper {
+    background: var(--color-bg-elevated);
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.model-page-modal .ant-input-affix-wrapper .ant-input {
+    background: transparent;
+}
+
+.model-page-modal .ant-input::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.model-page-modal .ant-btn-default,
+.model-page-confirm .ant-btn-default {
+    background: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.model-page-modal .ant-btn-default:hover,
+.model-page-confirm .ant-btn-default:hover {
+    background: var(--color-muted-bg);
+    border-color: var(--color-text-secondary);
+    color: var(--color-text);
+}
+
+/* Pagination styles */
+.model-page .ant-pagination {
+    margin-top: 16px;
+}
+
+/* Empty state */
+.model-page .ant-empty {
+    padding: 48px 0;
+}

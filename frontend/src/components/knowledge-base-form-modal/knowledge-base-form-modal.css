@@ -1,0 +1,11 @@
+.knowledge-base-form {
+    padding-top: 16px;
+}
+
+.knowledge-base-form .ant-form-item {
+    margin-bottom: 20px;
+}
+
+.knowledge-base-form .ant-form-item-label > label {
+    font-weight: 500;
+}

@@ -1,0 +1,14 @@
+/* Home Page Styles */
+
+.home-page {
+    min-height: calc(100vh - 64px - 60px);
+    /* Account for header and footer */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tab Content Area */
+.tab-content {
+    flex: 1;
+    background: var(--color-bg);
+}

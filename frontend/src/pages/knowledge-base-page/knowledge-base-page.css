@@ -1,0 +1,614 @@
+.knowledge-base-page,
+.knowledge-base-management-page {
+    background: var(--color-bg-secondary);
+    min-height: 100%;
+    color: var(--color-text);
+}
+
+.knowledge-base-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: var(--spacing-xl) 0;
+}
+
+@media (max-width: 767px) {
+    .knowledge-base-container {
+        width: 100%;
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+}
+
+.knowledge-base-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.knowledge-base-title h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.knowledge-base-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.knowledge-base-search-panel {
+    background: var(--color-bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--color-border-strong);
+    box-shadow: var(--shadow-sm);
+    padding: 16px;
+}
+
+.knowledge-base-search-form .ant-form-item {
+    margin-bottom: 0;
+}
+
+.knowledge-base-search-input {
+    width: 100%;
+    max-width: 520px;
+}
+
+.knowledge-base-search-number {
+    width: 100%;
+}
+
+.knowledge-base-search-actions {
+    display: flex;
+    align-items: flex-end;
+}
+
+.knowledge-base-search-actions .ant-btn {
+    width: 100%;
+}
+
+.knowledge-base-results {
+    margin-top: 16px;
+}
+
+@media (max-width: 1023px) {
+    .knowledge-base-search-input {
+        max-width: 100%;
+    }
+}
+
+.knowledge-base-page .ant-form-item-label > label {
+    color: var(--color-text);
+}
+
+.knowledge-base-page .ant-input,
+.knowledge-base-page .ant-input-affix-wrapper,
+.knowledge-base-page .ant-input-number,
+.knowledge-base-page .ant-input-number-input,
+.knowledge-base-page .ant-select-selector,
+.knowledge-base-page .ant-select-single .ant-select-selector {
+    background: var(--color-bg-elevated) !important;
+    border-color: var(--color-border) !important;
+    color: var(--color-text);
+}
+
+.knowledge-base-page .ant-input::placeholder,
+.knowledge-base-page .ant-input-number-input::placeholder,
+.knowledge-base-page .ant-select-selection-placeholder {
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-page .ant-select-arrow {
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-chunk-preview {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-content-cell {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.knowledge-base-content-cell .knowledge-base-chunk-preview {
+    flex: 1;
+}
+
+.knowledge-base-content-toggle {
+    padding: 0;
+    height: auto;
+    color: var(--color-primary);
+}
+
+.knowledge-base-content-toggle:hover {
+    color: var(--color-primary-hover);
+}
+
+.knowledge-base-chunk-content {
+    padding: 12px;
+    background: var(--color-muted-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-text);
+    white-space: pre-wrap;
+}
+
+.knowledge-base-management-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.knowledge-base-management-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* Table styles */
+.knowledge-base-page .ant-table {
+    background: var(--color-bg-card);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border-strong);
+}
+
+.knowledge-base-page .ant-table-container {
+    border: none;
+    background: var(--color-bg-card);
+}
+
+.knowledge-base-page .ant-table-content {
+    background: var(--color-bg-card);
+}
+
+.knowledge-base-page .ant-table-body,
+.knowledge-base-page .ant-table-placeholder {
+    background: var(--color-bg-card);
+}
+
+.knowledge-base-page .ant-table-placeholder {
+    border-top: 1px solid var(--color-border);
+}
+
+.knowledge-base-page .ant-table-placeholder > td {
+    background: var(--color-bg-card);
+}
+
+.knowledge-base-page .ant-table-placeholder .ant-table-cell {
+    background: var(--color-bg-card);
+}
+
+.knowledge-base-page .ant-table-tbody > tr.ant-table-placeholder > td {
+    background: var(--color-bg-card);
+}
+
+.knowledge-base-page .ant-table-placeholder:hover > td {
+    background: var(--color-bg-card) !important;
+}
+
+.knowledge-base-page .ant-table-tbody > tr.ant-table-placeholder:hover > td {
+    background: var(--color-bg-card) !important;
+}
+
+.knowledge-base-page .ant-table-placeholder .ant-table-cell:hover {
+    background: var(--color-bg-card) !important;
+}
+
+.knowledge-base-page .ant-empty {
+    padding: 48px 0;
+    background: var(--color-bg-card);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+
+.knowledge-base-page .ant-empty-description {
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-page .ant-empty-image,
+.knowledge-base-page .ant-empty-img-default,
+.knowledge-base-page .ant-empty-img-simple {
+    background: transparent;
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-modal .ant-table {
+    background: var(--color-bg-card);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border-strong);
+}
+
+.knowledge-base-modal .ant-table-container {
+    border: none;
+    background: var(--color-bg-card);
+}
+
+.knowledge-base-modal .ant-table-content {
+    background: var(--color-bg-card);
+}
+
+.knowledge-base-modal .ant-table-body,
+.knowledge-base-modal .ant-table-placeholder {
+    background: var(--color-bg-card);
+}
+
+.knowledge-base-modal .ant-table-placeholder {
+    border-top: 1px solid var(--color-border);
+}
+
+.knowledge-base-modal .ant-table-placeholder > td {
+    background: var(--color-bg-card);
+}
+
+.knowledge-base-modal .ant-table-placeholder .ant-table-cell {
+    background: var(--color-bg-card);
+}
+
+.knowledge-base-modal .ant-table-tbody > tr.ant-table-placeholder > td {
+    background: var(--color-bg-card);
+}
+
+.knowledge-base-modal .ant-table-placeholder:hover > td {
+    background: var(--color-bg-card) !important;
+}
+
+.knowledge-base-modal .ant-table-tbody > tr.ant-table-placeholder:hover > td {
+    background: var(--color-bg-card) !important;
+}
+
+.knowledge-base-modal .ant-table-placeholder .ant-table-cell:hover {
+    background: var(--color-bg-card) !important;
+}
+
+.knowledge-base-modal .ant-empty:hover {
+    background: var(--color-bg-card) !important;
+}
+
+.knowledge-base-modal .ant-empty-image {
+    background: var(--color-bg-card);
+}
+
+.knowledge-base-page .ant-table-thead > tr > th {
+    background: var(--color-table-header);
+    font-weight: 600;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.knowledge-base-modal .ant-table-thead > tr > th {
+    background: var(--color-table-header);
+    font-weight: 600;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.knowledge-base-page .ant-table-tbody > tr.ant-table-row:hover > td {
+    background: var(--color-table-row-hover);
+}
+
+.knowledge-base-modal .ant-table-tbody > tr.ant-table-row:hover > td {
+    background: var(--color-table-row-hover);
+}
+
+.knowledge-base-page .ant-table-tbody > tr > td {
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.knowledge-base-modal .ant-table-tbody > tr > td {
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.knowledge-base-page .ant-btn-link {
+    padding: 0 4px;
+}
+
+.knowledge-base-manage-button {
+    background: var(--color-bg-card);
+    border-color: var(--color-border-strong);
+    color: var(--color-text);
+}
+
+.knowledge-base-manage-button:hover,
+.knowledge-base-manage-button:focus-visible {
+    background: var(--color-muted-bg);
+    border-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+/* Modal theme alignment */
+.knowledge-base-modal .ant-modal-content,
+.knowledge-base-confirm .ant-modal-content {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.knowledge-base-modal .ant-modal-header,
+.knowledge-base-confirm .ant-modal-header {
+    background: transparent;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.knowledge-base-modal .ant-modal-title,
+.knowledge-base-confirm .ant-modal-title,
+.knowledge-base-confirm .ant-modal-confirm-title {
+    color: var(--color-text);
+}
+
+.knowledge-base-modal .ant-modal-body,
+.knowledge-base-confirm .ant-modal-body,
+.knowledge-base-confirm .ant-modal-confirm-content {
+    color: var(--color-text);
+}
+
+.knowledge-base-modal .ant-modal-close,
+.knowledge-base-confirm .ant-modal-close {
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-modal .ant-modal-footer,
+.knowledge-base-confirm .ant-modal-footer {
+    border-top: 1px solid var(--color-border);
+    background: transparent;
+}
+
+.knowledge-base-modal .ant-form-item-label > label {
+    color: var(--color-text);
+}
+
+.knowledge-base-modal .ant-form-item-explain,
+.knowledge-base-modal .ant-form-item-extra {
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-modal .ant-input,
+.knowledge-base-modal .ant-input-affix-wrapper,
+.knowledge-base-modal .ant-input-textarea {
+    background: var(--color-bg-elevated);
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.knowledge-base-modal .ant-input::placeholder,
+.knowledge-base-modal textarea::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-modal .ant-btn-default,
+.knowledge-base-confirm .ant-btn-default {
+    background: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.knowledge-base-modal .ant-btn-default:hover,
+.knowledge-base-confirm .ant-btn-default:hover {
+    background: var(--color-muted-bg);
+    border-color: var(--color-text-secondary);
+    color: var(--color-text);
+}
+
+.knowledge-base-modal .ant-progress-text {
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-modal .ant-progress-inner {
+    background: var(--color-border);
+}
+
+.knowledge-base-modal .ant-progress-bg {
+    background: var(--color-primary);
+}
+
+.knowledge-base-modal .ant-progress-status-success .ant-progress-bg {
+    background: var(--color-secondary);
+}
+
+.knowledge-base-modal .ant-progress-status-exception .ant-progress-bg {
+    background: var(--color-danger);
+}
+
+/* Upload */
+.knowledge-base-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.knowledge-base-upload-tip {
+    margin: 0;
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-job-status {
+    margin-top: 16px;
+    padding: 16px;
+    background: var(--color-muted-bg);
+    border: 1px solid var(--color-border-strong);
+    border-radius: 8px;
+}
+
+.knowledge-base-job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    color: var(--color-text);
+}
+
+.knowledge-base-job-error {
+    margin-top: 8px;
+    color: var(--color-danger);
+    font-size: 13px;
+}
+
+/* Pagination styles */
+.knowledge-base-page .ant-pagination {
+    margin-top: 16px;
+}
+
+.knowledge-base-page .ant-pagination-item {
+    background: var(--color-bg-card);
+    border-color: var(--color-border-strong);
+}
+
+.knowledge-base-page .ant-pagination-item a,
+.knowledge-base-page .ant-pagination-item-ellipsis,
+.knowledge-base-page .ant-pagination-total-text,
+.knowledge-base-page .ant-pagination-options {
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-page .ant-pagination-item-active {
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
+}
+
+.knowledge-base-page .ant-pagination-item-active a {
+    color: var(--color-text);
+}
+
+.knowledge-base-page .ant-pagination-item:hover {
+    background: var(--color-table-row-hover);
+    border-color: var(--color-primary);
+}
+
+.knowledge-base-page .ant-pagination-prev .ant-pagination-item-link,
+.knowledge-base-page .ant-pagination-next .ant-pagination-item-link {
+    background: var(--color-bg-card);
+    border-color: var(--color-border-strong);
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-page .ant-pagination-prev:hover .ant-pagination-item-link,
+.knowledge-base-page .ant-pagination-next:hover .ant-pagination-item-link {
+    background: var(--color-table-row-hover);
+    border-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+.knowledge-base-modal .ant-pagination {
+    margin-top: 16px;
+}
+
+.knowledge-base-modal .ant-pagination-item {
+    background: var(--color-bg-card);
+    border-color: var(--color-border-strong);
+}
+
+.knowledge-base-modal .ant-pagination-item a,
+.knowledge-base-modal .ant-pagination-item-ellipsis,
+.knowledge-base-modal .ant-pagination-total-text,
+.knowledge-base-modal .ant-pagination-options {
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-modal .ant-pagination-item-active {
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
+}
+
+.knowledge-base-modal .ant-pagination-item-active a {
+    color: var(--color-text);
+}
+
+.knowledge-base-modal .ant-pagination-item:hover {
+    background: var(--color-table-row-hover);
+    border-color: var(--color-primary);
+}
+
+.knowledge-base-modal .ant-pagination-prev .ant-pagination-item-link,
+.knowledge-base-modal .ant-pagination-next .ant-pagination-item-link {
+    background: var(--color-bg-card);
+    border-color: var(--color-border-strong);
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-modal .ant-pagination-prev:hover .ant-pagination-item-link,
+.knowledge-base-modal .ant-pagination-next:hover .ant-pagination-item-link {
+    background: var(--color-table-row-hover);
+    border-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+.knowledge-base-page .ant-pagination-options .ant-select-selector,
+.knowledge-base-modal .ant-pagination-options .ant-select-selector {
+    background: var(--color-bg-card) !important;
+    border-color: var(--color-border-strong) !important;
+    color: var(--color-text);
+}
+
+.knowledge-base-page .ant-pagination-options .ant-select-arrow,
+.knowledge-base-modal .ant-pagination-options .ant-select-arrow {
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-page .ant-select-dropdown,
+.knowledge-base-modal .ant-select-dropdown {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-strong);
+    box-shadow: var(--shadow-md);
+}
+
+.knowledge-base-page .ant-select-item,
+.knowledge-base-modal .ant-select-item {
+    color: var(--color-text);
+}
+
+.knowledge-base-select-dropdown {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-strong);
+    box-shadow: var(--shadow-md);
+}
+
+.knowledge-base-select-dropdown .ant-select-item {
+    color: var(--color-text);
+}
+
+.knowledge-base-select-dropdown .ant-select-item-option-active,
+.knowledge-base-select-dropdown .ant-select-item-option-selected {
+    background: var(--color-table-row-hover);
+    color: var(--color-text);
+}
+
+.knowledge-base-page .ant-select-item-option-active,
+.knowledge-base-page .ant-select-item-option-selected,
+.knowledge-base-modal .ant-select-item-option-active,
+.knowledge-base-modal .ant-select-item-option-selected {
+    background: var(--color-table-row-hover);
+    color: var(--color-text);
+}
+
+.knowledge-base-modal .ant-empty {
+    padding: 48px 0;
+    background: var(--color-bg-card);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+
+.knowledge-base-modal .ant-empty-description {
+    color: var(--color-text-secondary);
+}
+
+.knowledge-base-modal .ant-empty-image,
+.knowledge-base-modal .ant-empty-img-default,
+.knowledge-base-modal .ant-empty-img-simple {
+    background: transparent;
+    color: var(--color-text-secondary);
+}

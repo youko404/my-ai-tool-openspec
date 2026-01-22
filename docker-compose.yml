@@ -1,0 +1,118 @@
+version: '3.8'
+
+services:
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: ai-content-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ai_content
+      MYSQL_USER: ai_content
+      MYSQL_PASSWORD: ai_content123
+    ports:
+      - "13306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - ai-content-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: ai-content-redis
+    ports:
+      - "16379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - ai-content-network
+
+  # Backend Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ai-content-backend
+    ports:
+      - "18080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/ai_content?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: ai_content
+      SPRING_DATASOURCE_PASSWORD: ai_content123
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      VECTOR_DATASOURCE_URL: jdbc:postgresql://vector_db:5432/ai_rag_knowledge
+      VECTOR_DATASOURCE_USERNAME: postgres
+      VECTOR_DATASOURCE_PASSWORD: postgres
+      OLLAMA_BASE_URL: http://ollama:11434
+      OLLAMA_MODEL: qwen3-embedding:0.6b
+    depends_on:
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      vector_db:
+        condition: service_started
+      ollama:
+        condition: service_started
+    networks:
+      - ai-content-network
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ai-content-frontend
+    ports:
+      - "18880:80"
+    depends_on:
+      - backend
+    networks:
+      - ai-content-network
+
+  # Ollama Service
+  ollama:
+    image: ollama/ollama:0.13.0
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    networks:
+      - ai-content-network
+
+  # Vector Database (PgVector)
+  vector_db:
+    image: pgvector/pgvector:pg17
+    container_name: vector_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ai_rag_knowledge
+      PGPASSWORD: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - ai-content-network
+
+volumes:
+  mysql_data:
+  redis_data:
+
+
+networks:
+  ai-content-network:
+    driver: bridge
