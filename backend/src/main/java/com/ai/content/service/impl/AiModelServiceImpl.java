@@ -1,8 +1,10 @@
 package com.ai.content.service.impl;
 
 import com.ai.content.domain.entity.mysql.AiModel;
+import com.ai.content.domain.enums.ModelProvider;
 import com.ai.content.dto.AiModelDTO;
 import com.ai.content.repository.mysql.AiModelRepository;
+import com.ai.content.service.ApiKeyCipher;
 import com.ai.content.service.AiModelService;
 import com.ai.content.vo.PageResult;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +26,7 @@ import java.util.List;
 public class AiModelServiceImpl implements AiModelService {
 
     private final AiModelRepository aiModelRepository;
+    private final ApiKeyCipher apiKeyCipher;
 
     @Override
     @Transactional
@@ -34,8 +37,10 @@ public class AiModelServiceImpl implements AiModelService {
                 "Model '" + dto.getModelName() + "' already exists for provider '" + dto.getProvider() + "'");
         }
 
+        String encryptedApiKey = apiKeyCipher.encrypt(dto.getApiKey());
         AiModel model = AiModel.builder().modelName(dto.getModelName()).provider(dto.getProvider())
-            .isEnabled(dto.getIsEnabled() != null ? dto.getIsEnabled() : true).isDeleted(false).build();
+            .apiKey(encryptedApiKey).isEnabled(dto.getIsEnabled() != null ? dto.getIsEnabled() : true).isDeleted(false)
+            .build();
         model.setCreatedBy(operator);
         model.setUpdatedBy(operator);
 
@@ -53,7 +58,7 @@ public class AiModelServiceImpl implements AiModelService {
             .equals(model.getProvider()))) {
 
             String newName = dto.getModelName() != null ? dto.getModelName() : model.getModelName();
-            String newProvider = dto.getProvider() != null ? dto.getProvider() : model.getProvider();
+            ModelProvider newProvider = dto.getProvider() != null ? dto.getProvider() : model.getProvider();
 
             if (aiModelRepository.existsByModelNameAndProviderExcludingId(newName, newProvider, id)) {
                 throw new IllegalArgumentException(
@@ -64,8 +69,11 @@ public class AiModelServiceImpl implements AiModelService {
         if (StringUtils.hasText(dto.getModelName())) {
             model.setModelName(dto.getModelName());
         }
-        if (StringUtils.hasText(dto.getProvider())) {
+        if (dto.getProvider() != null) {
             model.setProvider(dto.getProvider());
+        }
+        if (dto.getApiKey() != null) {
+            model.setApiKey(StringUtils.hasText(dto.getApiKey()) ? apiKeyCipher.encrypt(dto.getApiKey()) : null);
         }
         if (dto.getIsEnabled() != null) {
             model.setIsEnabled(dto.getIsEnabled());
@@ -121,7 +129,7 @@ public class AiModelServiceImpl implements AiModelService {
     }
 
     @Override
-    public List<AiModel> getByProvider(String provider) {
+    public List<AiModel> getByProvider(ModelProvider provider) {
         return aiModelRepository.findByProviderAndIsDeletedFalse(provider);
     }
 

@@ -17,6 +17,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
+    gap: var(--spacing-lg);
 }
 
 .logo {
@@ -42,6 +43,30 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
+}
+
+.header-tabs {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+.header-tabs .tab-navigation {
+    width: auto;
+    padding: 0;
+    background: transparent;
+    border-bottom: none;
+}
+
+.header-tabs .tab-navigation-container {
+    gap: var(--spacing-xs);
+}
+
+.header-tabs .tab-item {
+    padding: 6px 14px;
+    font-size: var(--font-size-sm);
 }
 
 .theme-toggle {

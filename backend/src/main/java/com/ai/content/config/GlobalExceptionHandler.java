@@ -48,6 +48,12 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(Result.error(400, e.getMessage()));
     }
 
+    @ExceptionHandler(UnsupportedOperationException.class)
+    public ResponseEntity<Result<Void>> handleUnsupportedOperationException(UnsupportedOperationException e) {
+        log.warn("Unsupported operation: {}", e.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).body(Result.error(501, e.getMessage()));
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Result<Void>> handleException(Exception e) {
         log.error("Internal server error", e);

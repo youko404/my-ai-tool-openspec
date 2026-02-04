@@ -4,10 +4,11 @@ import {
     DatabaseOutlined,
     ToolOutlined,
     ThunderboltOutlined,
+    MessageOutlined,
 } from '@ant-design/icons'
 import './tab-navigation.css'
 
-export type TabKey = 'workflow' | 'model' | 'knowledge-base' | 'tool' | 'skills'
+export type TabKey = 'chat' | 'workflow' | 'model' | 'knowledge-base' | 'tool' | 'skills'
 
 interface TabItem {
     key: TabKey
@@ -21,6 +22,11 @@ interface TabNavigationProps {
 }
 
 const tabs: TabItem[] = [
+    {
+        key: 'chat',
+        label: '聊天',
+        icon: <MessageOutlined />,
+    },
     {
         key: 'workflow',
         label: '工作流',

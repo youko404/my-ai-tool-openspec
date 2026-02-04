@@ -3,9 +3,7 @@
 ## Purpose
 
 TBD - created by archiving change add-knowledge-base-pgvector. Update Purpose after archive.
-
 ## Requirements
-
 ### Requirement: Knowledge Base Management API
 
 The system SHALL provide APIs to create, list, update, delete, and enable/disable knowledge bases stored in MySQL.
@@ -58,4 +56,24 @@ The system SHALL provide an API to fetch ingestion job status for a knowledge ba
 
 - **WHEN** a client requests the status for an ingestion job
 - **THEN** the system returns the current state (queued, in_progress, failed, completed) and a percentage value
+
+### Requirement: Knowledge Base Chunk Search API
+
+The system SHALL provide an API to search knowledge base chunks by cosine similarity using a query text.
+
+#### Scenario: Search chunks by similarity
+
+- **WHEN** a client submits a knowledgeBaseId, queryText, minScore, and limit
+- **THEN** the system returns up to limit chunks with cosine similarity >= minScore for the knowledge base, including
+  the chunk content, source file name, chunkIndex, and similarity score
+
+### Requirement: Ingestion File Progress List API
+
+The system SHALL provide an API to list ingestion files for a knowledge base, including file metadata, status, and
+percentage progress, ordered with in-progress and most recent files first, and support pagination.
+
+#### Scenario: Query file progress list
+
+- **WHEN** a client requests the file progress list for a knowledge base
+- **THEN** the system returns the files with status and progress percent
 

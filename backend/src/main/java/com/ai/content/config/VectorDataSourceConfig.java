@@ -16,13 +16,13 @@ import javax.sql.DataSource;
 public class VectorDataSourceConfig {
 
     @Bean
-    @ConfigurationProperties("vector.datasource")
+    @ConfigurationProperties("spring.datasource.vector")
     public DataSourceProperties vectorDataSourceProperties() {
         return new DataSourceProperties();
     }
 
     @Bean(name = "vectorDataSource")
-    @ConfigurationProperties("vector.datasource.hikari")
+    @ConfigurationProperties("spring.datasource.vector.hikari")
     public DataSource vectorDataSource(@Qualifier("vectorDataSourceProperties") DataSourceProperties properties) {
         return properties.initializeDataSourceBuilder().build();
     }

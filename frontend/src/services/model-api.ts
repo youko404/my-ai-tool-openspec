@@ -13,6 +13,13 @@ export const modelApi = {
     },
 
     /**
+     * Get all enabled models
+     */
+    getEnabled(): Promise<AiModel[]> {
+        return http.get<AiModel[]>('/models/enabled')
+    },
+
+    /**
      * Get models with pagination
      */
     getPage(page: number, pageSize: number): Promise<PageResult<AiModel>> {
@@ -63,6 +70,13 @@ export const modelApi = {
      */
     toggleEnabled(id: number, enabled: boolean): Promise<AiModel> {
         return http.patch<AiModel>(`/models/${id}/toggle`, { enabled })
+    },
+
+    /**
+     * Get supported model providers
+     */
+    getProviders(): Promise<string[]> {
+        return http.get<string[]>('/models/providers')
     },
 }
 

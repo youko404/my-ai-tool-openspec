@@ -3,6 +3,7 @@ package com.ai.content.service;
 import com.ai.content.config.OllamaProperties;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -16,6 +17,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class OllamaEmbeddingModel {
 
+    @Qualifier("ollamaRestClient")
     private final RestClient ollamaRestClient;
     private final OllamaProperties properties;
 

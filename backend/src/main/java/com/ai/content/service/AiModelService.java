@@ -1,6 +1,7 @@
 package com.ai.content.service;
 
 import com.ai.content.domain.entity.mysql.AiModel;
+import com.ai.content.domain.enums.ModelProvider;
 import com.ai.content.dto.AiModelDTO;
 import com.ai.content.vo.PageResult;
 
@@ -85,7 +86,7 @@ public interface AiModelService {
      * @param provider Provider name
      * @return List of models from the provider
      */
-    List<AiModel> getByProvider(String provider);
+    List<AiModel> getByProvider(ModelProvider provider);
 
     /**
      * Toggle model enabled status

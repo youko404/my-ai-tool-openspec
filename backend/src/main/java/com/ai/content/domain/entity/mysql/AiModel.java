@@ -1,6 +1,7 @@
 package com.ai.content.domain.entity.mysql;
 
 import com.ai.content.domain.entity.BaseEntity;
+import com.ai.content.domain.enums.ModelProvider;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -31,7 +32,14 @@ public class AiModel extends BaseEntity {
      * Service provider (e.g., OpenAI, Anthropic, Google)
      */
     @Column(name = "provider", nullable = false, length = 50)
-    private String provider;
+    @Enumerated(EnumType.STRING)
+    private ModelProvider provider;
+
+    /**
+     * Encrypted API key for this model (optional)
+     */
+    @Column(name = "api_key", length = 500)
+    private String apiKey;
 
     /**
      * Whether the model is enabled for use

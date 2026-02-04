@@ -61,6 +61,17 @@ cd backend
 
 访问 http://localhost:8080/api/health
 
+### OpenRouter 配置
+
+在 `backend/src/main/resources/application.yml` 或 `backend/src/main/resources/application-local.yml` 中配置：
+
+- `openrouter.api-key`：OpenRouter API Key（也可使用环境变量 `OPENROUTER_API_KEY`）
+- `openrouter.base-url`：OpenRouter API 基础地址（默认 `https://openrouter.ai/api/v1`）
+- `openrouter.default-model`：默认模型（例如 `openai/gpt-4o-mini`）
+- `openrouter.timeout`：请求超时（例如 `10s`）
+- `openrouter.http-referer` / `openrouter.x-title`：可选请求头
+- `model.api-key-secret`：模型 API Key 加密密钥（可使用环境变量 `MODEL_API_KEY_SECRET`）
+
 ### Docker 模式
 
 ```bash

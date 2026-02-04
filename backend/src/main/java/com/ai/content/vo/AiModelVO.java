@@ -1,6 +1,7 @@
 package com.ai.content.vo;
 
 import com.ai.content.domain.entity.mysql.AiModel;
+import com.ai.content.domain.enums.ModelProvider;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +20,7 @@ public class AiModelVO {
 
     private Long id;
     private String modelName;
-    private String provider;
+    private ModelProvider provider;
     private Boolean isEnabled;
     private String createdBy;
     private String updatedBy;

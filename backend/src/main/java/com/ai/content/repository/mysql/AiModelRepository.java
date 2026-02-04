@@ -1,6 +1,7 @@
 package com.ai.content.repository.mysql;
 
 import com.ai.content.domain.entity.mysql.AiModel;
+import com.ai.content.domain.enums.ModelProvider;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -40,12 +41,12 @@ public interface AiModelRepository extends JpaRepository<AiModel, Long> {
     /**
      * Find models by provider excluding deleted ones
      */
-    List<AiModel> findByProviderAndIsDeletedFalse(String provider);
+    List<AiModel> findByProviderAndIsDeletedFalse(ModelProvider provider);
 
     /**
      * Find models by provider with pagination excluding deleted ones
      */
-    Page<AiModel> findByProviderAndIsDeletedFalse(String provider, Pageable pageable);
+    Page<AiModel> findByProviderAndIsDeletedFalse(ModelProvider provider, Pageable pageable);
 
     /**
      * Search models by name or provider with pagination
@@ -57,7 +58,7 @@ public interface AiModelRepository extends JpaRepository<AiModel, Long> {
     /**
      * Check if model name exists for a provider (excluding deleted)
      */
-    boolean existsByModelNameAndProviderAndIsDeletedFalse(String modelName, String provider);
+    boolean existsByModelNameAndProviderAndIsDeletedFalse(String modelName, ModelProvider provider);
 
     /**
      * Check if model name exists for a provider excluding a specific ID (for update validation)
@@ -65,5 +66,5 @@ public interface AiModelRepository extends JpaRepository<AiModel, Long> {
     @Query(
         "SELECT COUNT(m) > 0 FROM AiModel m WHERE m.modelName = :modelName " + "AND m.provider = :provider AND m.id != :excludeId AND m.isDeleted = false")
     boolean existsByModelNameAndProviderExcludingId(@Param("modelName") String modelName,
-        @Param("provider") String provider, @Param("excludeId") Long excludeId);
+        @Param("provider") ModelProvider provider, @Param("excludeId") Long excludeId);
 }

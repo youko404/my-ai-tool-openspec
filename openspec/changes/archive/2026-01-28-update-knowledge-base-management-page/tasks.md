@@ -9,7 +9,7 @@
 
 ## 2. Validation
 
-- [ ] 2.1 Manual: open the query page, click the management entry, and verify it opens a new browser tab with the
+- [x] 2.1 Manual: open the query page, click the management entry, and verify it opens a new browser tab with the
   list/actions.
-- [ ] 2.2 Manual: verify 80% centered layout on desktop and full-width layout on mobile for both pages.
-- [ ] 2.3 Manual: verify dark mode text and input backgrounds are readable.
+- [x] 2.2 Manual: verify 80% centered layout on desktop and full-width layout on mobile for both pages.
+- [x] 2.3 Manual: verify dark mode text and input backgrounds are readable.

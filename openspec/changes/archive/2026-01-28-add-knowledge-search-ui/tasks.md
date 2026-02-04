@@ -7,4 +7,4 @@
 - [x] 1.3 Move the current knowledge base management list into a header-button entry (modal or panel) while preserving
   create/edit/delete/enable/disable flows.
 - [x] 1.4 Update styles to support the query-first layout and result expansion UI.
-- [ ] 1.5 Validate via UI smoke check or frontend tests if available.
+- [x] 1.5 Validate via UI smoke check or frontend tests if available.

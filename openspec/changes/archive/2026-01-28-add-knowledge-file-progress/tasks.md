@@ -13,5 +13,5 @@
 
 ## 3. Validation
 
-- [ ] 3.1 Add/adjust tests for API service and UI rendering as needed.
+- [x] 3.1 Add/adjust tests for API service and UI rendering as needed.
 - [x] 3.2 Run `openspec validate add-knowledge-file-progress --strict --no-interactive`.

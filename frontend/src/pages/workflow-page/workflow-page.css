@@ -1,18 +1,219 @@
 .workflow-page {
-    padding: var(--spacing-xl);
-}
-
-.page-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 400px;
-    color: var(--color-text-secondary);
-    text-align: center;
-}
-
-.page-placeholder h2 {
+    padding: 24px;
+    background: var(--color-bg-secondary);
+    min-height: 100%;
     color: var(--color-text);
-    margin-bottom: var(--spacing-md);
+}
+
+.workflow-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.workflow-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* Table styles for Dark Mode */
+.workflow-page .ant-table {
+    background: var(--color-bg-card);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border-strong);
+}
+
+.workflow-page .ant-table-thead > tr > th {
+    background: var(--color-table-header);
+    font-weight: 600;
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.workflow-page .ant-table-tbody > tr.ant-table-row:hover > td {
+    background: var(--color-table-row-hover);
+}
+
+.workflow-page .ant-table-tbody > tr > td {
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.workflow-page .ant-table-wrapper .ant-table-pagination.ant-pagination {
+    margin-top: 16px;
+}
+
+/* Buttons */
+.workflow-page .ant-btn-link {
+    padding: 0 4px;
+}
+
+/* Inputs */
+.workflow-page .ant-input,
+.workflow-page .ant-input-affix-wrapper {
+    background: var(--color-bg-card);
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.workflow-page .ant-input-affix-wrapper .ant-input {
+    background: transparent;
+}
+
+.workflow-page .ant-input::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.workflow-page .ant-input-affix-wrapper .ant-input-prefix,
+.workflow-page .ant-input-affix-wrapper .ant-input-suffix {
+    color: var(--color-text-secondary);
+}
+
+/* Pagination */
+.workflow-page .ant-pagination-item {
+    background: var(--color-bg-card);
+    border-color: var(--color-border-strong);
+}
+
+.workflow-page .ant-pagination-item a,
+.workflow-page .ant-pagination-item-ellipsis,
+.workflow-page .ant-pagination-total-text,
+.workflow-page .ant-pagination-options {
+    color: var(--color-text-secondary);
+}
+
+.workflow-page .ant-pagination-item-active {
+    background: var(--color-primary-soft);
+    border-color: var(--color-primary);
+}
+
+.workflow-page .ant-pagination-item-active a {
+    color: var(--color-text);
+}
+
+.workflow-page .ant-pagination-item:hover {
+    background: var(--color-table-row-hover);
+    border-color: var(--color-primary);
+}
+
+.workflow-page .ant-pagination-prev .ant-pagination-item-link,
+.workflow-page .ant-pagination-next .ant-pagination-item-link {
+    background: var(--color-bg-card);
+    border-color: var(--color-border-strong);
+    color: var(--color-text-secondary);
+}
+
+.workflow-page .ant-pagination-prev:hover .ant-pagination-item-link,
+.workflow-page .ant-pagination-next:hover .ant-pagination-item-link {
+    background: var(--color-table-row-hover);
+    border-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+.workflow-page .ant-pagination-options .ant-select-selector {
+    background: var(--color-bg-card) !important;
+    border-color: var(--color-border-strong) !important;
+    color: var(--color-text);
+}
+
+.workflow-page .ant-pagination-options .ant-select-arrow {
+    color: var(--color-text-secondary);
+}
+
+.workflow-page .ant-select-dropdown {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-strong);
+    box-shadow: var(--shadow-md);
+}
+
+.workflow-page .ant-select-item {
+    color: var(--color-text);
+}
+
+.workflow-page .ant-select-item-option-active,
+.workflow-page .ant-select-item-option-selected {
+    background: var(--color-table-row-hover);
+    color: var(--color-text);
+}
+
+/* Empty state */
+.workflow-page .ant-empty {
+    padding: 48px 0;
+}
+
+.workflow-page .ant-empty-description {
+    color: var(--color-text-secondary);
+}
+
+/* Modal Styling (Shared with Model Page concept but scoped to workflow-page-modal) */
+.workflow-page-modal .ant-modal-content {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.workflow-page-modal .ant-modal-header {
+    background: transparent;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.workflow-page-modal .ant-modal-title,
+.workflow-page-modal .ant-modal-confirm-title {
+    color: var(--color-text);
+}
+
+.workflow-page-modal .ant-modal-body,
+.workflow-page-modal .ant-modal-confirm-content {
+    color: var(--color-text);
+}
+
+.workflow-page-modal .ant-modal-close {
+    color: var(--color-text-secondary);
+}
+
+.workflow-page-modal .ant-modal-footer {
+    border-top: 1px solid var(--color-border);
+    background: transparent;
+}
+
+.workflow-page-modal .ant-form-item-label > label {
+    color: var(--color-text);
+}
+
+.workflow-page-modal .ant-form-item-explain,
+.workflow-page-modal .ant-form-item-extra {
+    color: var(--color-text-secondary);
+}
+
+.workflow-page-modal .ant-input,
+.workflow-page-modal .ant-input-affix-wrapper,
+.workflow-page-modal .ant-input-textarea-show-count {
+    background: var(--color-bg-elevated);
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.workflow-page-modal .ant-input-affix-wrapper .ant-input {
+    background: transparent;
+}
+
+.workflow-page-modal .ant-input::placeholder,
+.workflow-page-modal .ant-input-textarea::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.workflow-page-modal .ant-btn-default {
+    background: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.workflow-page-modal .ant-btn-default:hover {
+    background: var(--color-muted-bg);
+    border-color: var(--color-text-secondary);
+    color: var(--color-text);
 }

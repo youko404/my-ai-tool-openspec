@@ -1,6 +1,8 @@
 package com.ai.content.dto;
 
+import com.ai.content.domain.enums.ModelProvider;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,9 +28,14 @@ public class AiModelDTO {
     /**
      * Service provider (e.g., OpenAI, Anthropic, Google)
      */
-    @NotBlank(message = "Provider cannot be empty")
-    @Size(max = 50, message = "Provider cannot exceed 50 characters")
-    private String provider;
+    @NotNull(message = "Provider cannot be empty")
+    private ModelProvider provider;
+
+    /**
+     * API key for the model (optional, stored encrypted)
+     */
+    @Size(max = 500, message = "API key cannot exceed 500 characters")
+    private String apiKey;
 
     /**
      * Whether the model is enabled for use

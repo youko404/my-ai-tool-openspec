@@ -1,8 +1,12 @@
 package com.ai.content.controller;
 
 import com.ai.content.domain.entity.mysql.AiModel;
+import com.ai.content.domain.enums.ModelProvider;
 import com.ai.content.dto.AiModelDTO;
+import com.ai.content.dto.ChatRequestDTO;
+import com.ai.content.dto.ChatResponseDTO;
 import com.ai.content.service.AiModelService;
+import com.ai.content.service.ChatService;
 import com.ai.content.vo.AiModelVO;
 import com.ai.content.vo.PageResult;
 import com.ai.content.vo.Result;
@@ -10,6 +14,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -23,6 +28,7 @@ import java.util.stream.Collectors;
 public class AiModelController {
 
     private final AiModelService aiModelService;
+    private final ChatService chatService;
 
     /**
      * Create a new AI model
@@ -111,9 +117,27 @@ public class AiModelController {
      */
     @GetMapping("/provider/{provider}")
     public Result<List<AiModelVO>> getByProvider(@PathVariable String provider) {
-        List<AiModel> models = aiModelService.getByProvider(provider);
+        ModelProvider modelProvider = ModelProvider.fromValue(provider);
+        List<AiModel> models = aiModelService.getByProvider(modelProvider);
         List<AiModelVO> voList = models.stream().map(AiModelVO::fromEntity).collect(Collectors.toList());
         return Result.success(voList);
+    }
+
+    /**
+     * Get supported model providers
+     */
+    @GetMapping("/providers")
+    public Result<List<String>> getProviders() {
+        List<String> providers = Arrays.stream(ModelProvider.values()).map(ModelProvider::getValue).toList();
+        return Result.success(providers);
+    }
+
+    /**
+     * Chat with a specific model
+     */
+    @PostMapping("/{id}/chat")
+    public Result<ChatResponseDTO> chat(@PathVariable Long id, @Valid @RequestBody ChatRequestDTO request) {
+        return Result.success(chatService.chat(id, request));
     }
 
     /**

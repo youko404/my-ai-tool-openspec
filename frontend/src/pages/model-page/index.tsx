@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Table, Button, Input, Switch, Space, Modal, message } from 'antd'
-import { PlusOutlined, SearchOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons'
+import { PlusOutlined, SearchOutlined, EditOutlined, DeleteOutlined, SettingOutlined } from '@ant-design/icons'
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table'
 import ModelFormModal from '../../components/model-form-modal'
+import ProviderConfigModal from '../../components/provider-config-modal'
 import { modelApi } from '../../services/model-api'
 import type { AiModel, AiModelDTO } from '../../types/model'
 import './model-page.css'
@@ -15,9 +16,11 @@ function ModelPage() {
     const [pageSize, setPageSize] = useState(10)
     const [keyword, setKeyword] = useState('')
     const [searchValue, setSearchValue] = useState('')
+    const [providers, setProviders] = useState<string[]>([])
 
     // Modal state
     const [modalOpen, setModalOpen] = useState(false)
+    const [providerModalOpen, setProviderModalOpen] = useState(false)
     const [editingModel, setEditingModel] = useState<AiModel | null>(null)
 
     const fetchModels = useCallback(async () => {
@@ -40,6 +43,21 @@ function ModelPage() {
     useEffect(() => {
         fetchModels()
     }, [fetchModels])
+
+    const fetchProviders = useCallback(async () => {
+        try {
+            const data = await modelApi.getProviders()
+            setProviders(data)
+        } catch (error) {
+            if (error instanceof Error) {
+                message.error(error.message)
+            }
+        }
+    }, [])
+
+    useEffect(() => {
+        fetchProviders()
+    }, [fetchProviders])
 
     const handleSearch = () => {
         setKeyword(searchValue)
@@ -197,6 +215,12 @@ function ModelPage() {
                         }
                     />
                     <Button
+                        icon={<SettingOutlined />}
+                        onClick={() => setProviderModalOpen(true)}
+                    >
+                        服务商配置
+                    </Button>
+                    <Button
                         type="primary"
                         icon={<PlusOutlined />}
                         onClick={handleAdd}
@@ -229,6 +253,13 @@ function ModelPage() {
                 onSuccess={handleModalSuccess}
                 onCreate={handleCreate}
                 onUpdate={handleUpdate}
+            />
+
+            <ProviderConfigModal
+                open={providerModalOpen}
+                providers={providers}
+                onCancel={() => setProviderModalOpen(false)}
+                onSuccess={() => setProviderModalOpen(false)}
             />
         </div>
     )
